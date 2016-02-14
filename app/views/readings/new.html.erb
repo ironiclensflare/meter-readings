@@ -1,0 +1,15 @@
+<h1><%= "Enter a new #{@service.name} reading" %></h1>
+<% last_reading = @service.readings.last %>
+<% if !last_reading.nil? %>
+<p><%= "Last reading was #{last_reading.value} taken #{distance_of_time_in_words(last_reading.created_at, Time.now)} ago." %></p>
+<% end %>
+
+<%= form_for :reading, url: service_readings_path do |r| %>
+<div class="form-group">
+	<%= r.label :value %>
+	<%= r.text_field :value, class: 'form-control' %>
+</div>
+<div class="form-group">
+	<%= r.submit class: 'btn btn-primary' %>
+</div>
+<% end %>

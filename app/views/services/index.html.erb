@@ -1,0 +1,9 @@
+<h1>Enter a reading</h1>
+<p>Select a service to enter a reading for:</p>
+<div class="row">
+	<% @services.each do |service| %>
+	<div class="col-md-12 col-lg-6">
+		<%= link_to "<i class='fa #{service.icon}'></i> #{service.name}".html_safe, new_service_reading_path(service), class: 'btn btn-lg btn-primary btn-block service-btn' %>
+	</div>
+	<% end %>
+</div>
